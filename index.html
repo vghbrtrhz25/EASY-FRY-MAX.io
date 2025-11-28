@@ -1383,7 +1383,7 @@
                 categoryCard.dataset.id = category.id;
                 
                 const newRecipesCount = category.tips.filter(tip => tip.isNew).length;
-                const newBadge = newRecipesCount > 0 ? `<span class="new-badge">${newRecipesCount} nouveau(x)</span>` : '';
+                const newBadge = newRecipesCount > 0 ? `<span class="new-badge">${newRecipesCount}</span>` : '';
                 
                 categoryCard.innerHTML = `
                     <div class="category-icon">${category.icon}</div>
