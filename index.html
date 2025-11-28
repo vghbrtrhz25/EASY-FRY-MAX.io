@@ -15,6 +15,7 @@
             --success-color: #28a745;
             --warning-color: #ffc107;
             --danger-color: #dc3545;
+            --info-color: #17a2b8;
         }
         
         * {
@@ -301,6 +302,209 @@
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--border-color);
         }
+
+        .custom-recipes-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .custom-recipes-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .add-recipe-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .add-recipe-btn:hover {
+            background-color: #218838;
+        }
+        
+        .recipe-form {
+            background-color: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+        
+        .recipe-form.active {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn-primary:hover {
+            background-color: #cc001f;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+        
+        .user-recipe-item {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--info-color);
+        }
+        
+        .user-recipe-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .user-recipe-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-edit {
+            background-color: var(--info-color);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .btn-delete {
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .no-recipes {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .new-badge {
+            background-color: var(--success-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        
+        .search-bar {
+            margin: 1rem 0;
+            padding: 0.75rem;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-style: italic;
+            grid-column: 1 / -1;
+        }
         
         footer {
             background-color: var(--secondary-color);
@@ -342,6 +546,25 @@
                 margin-top: 0.5rem;
                 align-self: flex-end;
             }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-recipe-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .user-recipe-actions {
+                align-self: flex-end;
+            }
+            
+            .custom-recipes-section h2 {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
         }
         
         @media (max-width: 480px) {
@@ -363,6 +586,8 @@
     </header>
     
     <main>
+        <input type="text" class="search-bar" id="search-bar" placeholder="🔍 Rechercher une recette...">
+        
         <section class="categories-grid" id="categories">
             <!-- Les catégories seront générées dynamiquement par JavaScript -->
         </section>
@@ -393,6 +618,70 @@
             </div>
             <div class="timer-info" id="timer-info">
                 <!-- Informations sur le plat en cours -->
+            </div>
+        </section>
+        
+        <section class="custom-recipes-section" id="custom-recipes-section">
+            <h2>
+                Mes recettes personnalisées
+                <button class="add-recipe-btn" id="add-recipe-btn">
+                    <span>+</span> Ajouter une recette
+                </button>
+            </h2>
+            
+            <div class="recipe-form" id="recipe-form">
+                <div class="form-group">
+                    <label for="recipe-title">Nom de la recette *</label>
+                    <input type="text" id="recipe-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipe-category">Catégorie *</label>
+                    <select id="recipe-category" required>
+                        <option value="">Choisir une catégorie</option>
+                        <option value="potatoes">Pommes de terre et frites</option>
+                        <option value="meats">Viandes et volailles</option>
+                        <option value="fish">Poisson</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="vegetables">Légumes</option>
+                        <option value="pastry">Pâtisserie</option>
+                        <option value="healthy">Recettes Healthy</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recipe-description">Description et instructions *</label>
+                    <textarea id="recipe-description" required placeholder="Décrivez votre recette, les ingrédients et les étapes de préparation..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="recipe-time">Temps de cuisson (minutes) *</label>
+                        <input type="number" id="recipe-time" min="1" max="120" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="recipe-temperature">Température (°C) *</label>
+                        <input type="text" id="recipe-temperature" required placeholder="ex: 180°C">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="recipe-needs-stirring">
+                        <label for="recipe-needs-stirring">Retourner à mi-cuisson nécessaire</label>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancel-recipe">Annuler</button>
+                    <button type="button" class="btn-primary" id="save-recipe">Enregistrer la recette</button>
+                </div>
+            </div>
+            
+            <div id="user-recipes-list">
+                <!-- Les recettes personnalisées seront affichées ici -->
             </div>
         </section>
         
@@ -462,12 +751,22 @@
                         temperature: '180°C'
                     },
                     {
-                        id: 'quartiers-pommes',
-                        title: 'Quartiers de pommes de terre surgelées',
-                        content: 'Pour 300-800g de quartiers de pommes de terre surgelées, cuire 22-27 min à 180°C. Remuer à mi-cuisson.',
-                        totalTime: 25,
+                        id: 'wedges-pommes',
+                        title: 'Wedges de pommes de terre',
+                        content: 'Pour 500g de wedges maison, cuire 20-25 min à 200°C. Ajouter 1 c.à.s d\'huile d\'olive et des épices (paprika, ail).',
+                        totalTime: 23,
                         needsStirring: true,
-                        temperature: '180°C'
+                        temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'gratin-dauphinois',
+                        title: 'Gratin dauphinois light',
+                        content: 'Pour 4 personnes, couper 800g de pommes de terre en lamelles. Cuire 25 min à 180°C avec crème légère et fromage râpé.',
+                        totalTime: 25,
+                        needsStirring: false,
+                        temperature: '180°C',
+                        isNew: true
                     }
                 ]
             },
@@ -493,20 +792,31 @@
                         temperature: '180°C'
                     },
                     {
-                        id: 'poulet-entier',
-                        title: 'Poulet entier',
-                        content: 'Pour un poulet entier de 1000g, cuire 45 min à 200°C.',
-                        totalTime: 45,
-                        needsStirring: false,
-                        temperature: '200°C'
+                        id: 'brochettes-poulet',
+                        title: 'Brochettes de poulet',
+                        content: 'Pour 4 brochettes de poulet mariné, cuire 15-18 min à 200°C. Retourner à mi-cuisson. Servir avec du riz.',
+                        totalTime: 17,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
                     },
                     {
-                        id: 'bacon',
-                        title: 'Bacon',
-                        content: 'Pour 150g de bacon (environ 10 tranches), cuire 8 min à 180°C. Retourner à mi-cuisson.',
-                        totalTime: 8,
+                        id: 'boulettes-viande',
+                        title: 'Boulettes de viande',
+                        content: 'Pour 20 boulettes de bœuf, cuire 12-15 min à 190°C. Secouer le panier à mi-cuisson.',
+                        totalTime: 14,
                         needsStirring: true,
-                        temperature: '180°C'
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'cotes-porc',
+                        title: 'Côtes de porc',
+                        content: 'Pour 4 côtes de porc, cuire 18-22 min à 200°C. Retourner à mi-cuisson. Badigeonner de sauce BBQ les 5 dernières minutes.',
+                        totalTime: 20,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
                     }
                 ]
             },
@@ -524,12 +834,22 @@
                         temperature: '140°C'
                     },
                     {
-                        id: 'crevettes',
-                        title: 'Crevettes',
-                        content: 'Pour 12 crevettes, cuire 4 min à 170°C.',
-                        totalTime: 4,
+                        id: 'filets-cabillaud',
+                        title: 'Filets de cabillaud',
+                        content: 'Pour 2 filets de cabillaud de 150g chacun, cuire 12-14 min à 160°C. Ajouter du citron et des herbes.',
+                        totalTime: 13,
                         needsStirring: false,
-                        temperature: '170°C'
+                        temperature: '160°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'calamars',
+                        title: 'Calamars frits',
+                        content: 'Pour 300g de calamars, cuire 8-10 min à 200°C. Secouer à mi-cuisson. Servir avec une mayo à l\'ail.',
+                        totalTime: 9,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
                     }
                 ]
             },
@@ -547,36 +867,31 @@
                         temperature: '200°C'
                     },
                     {
-                        id: 'ailes-poulet',
-                        title: 'Ailes de poulet',
-                        content: 'Pour 300g d\'ailes de poulet surgelées, cuire 16-20 min à 200°C. Remuer à mi-cuisson.',
-                        totalTime: 18,
+                        id: 'samoussas',
+                        title: 'Samoussas légumes',
+                        content: 'Pour 8 samoussas aux légumes, cuire 10-12 min à 200°C. Retourner à mi-cuisson.',
+                        totalTime: 11,
                         needsStirring: true,
-                        temperature: '200°C'
+                        temperature: '200°C',
+                        isNew: true
                     },
                     {
-                        id: 'batonnets-fromage',
-                        title: 'Bâtonnets de fromage',
-                        content: 'Pour 125g de bâtonnets de fromage surgelés (5 pièces), cuire 7-9 min à 180°C.',
-                        totalTime: 8,
-                        needsStirring: false,
-                        temperature: '180°C'
+                        id: 'beignets-legumes',
+                        title: 'Beignets de légumes',
+                        content: 'Pour 15 beignets de courgettes/carottes, cuire 12-15 min à 190°C. Secouer à mi-cuisson.',
+                        totalTime: 14,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
                     },
                     {
-                        id: 'rondelles-oignon',
-                        title: 'Rondelles d\'oignon',
-                        content: 'Pour 200g de rondelles d\'oignon surgelées (10 pièces), cuire 8-10 min à 200°C. Remuer à mi-cuisson.',
+                        id: 'churros',
+                        title: 'Churros maison',
+                        content: 'Pour 20 churros, cuire 8-10 min à 180°C. Rouler dans le sucre cannèle à la sortie.',
                         totalTime: 9,
-                        needsStirring: true,
-                        temperature: '200°C'
-                    },
-                    {
-                        id: 'pizza',
-                        title: 'Pizza',
-                        content: 'Pour une pizza de 400g, cuire 7 min à 190°C.',
-                        totalTime: 7,
                         needsStirring: false,
-                        temperature: '190°C'
+                        temperature: '180°C',
+                        isNew: true
                     }
                 ]
             },
@@ -592,6 +907,33 @@
                         totalTime: 18,
                         needsStirring: false,
                         temperature: '200°C'
+                    },
+                    {
+                        id: 'brocoli',
+                        title: 'Brocoli croustillant',
+                        content: 'Pour 1 brocoli en fleurettes, cuire 10-12 min à 200°C. Arroser d\'huile d\'olive et saupoudrer de parmesan.',
+                        totalTime: 11,
+                        needsStirring: false,
+                        temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'carottes',
+                        title: 'Carottes rôties',
+                        content: 'Pour 500g de carottes en rondelles, cuire 18-20 min à 190°C. Ajouter du miel les 5 dernières minutes.',
+                        totalTime: 19,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'chou-fleur',
+                        title: 'Chou-fleur épicé',
+                        content: 'Pour 1 chou-fleur en fleurettes, cuire 15-18 min à 200°C. Mélanger avec curry et curcuma.',
+                        totalTime: 17,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
                     }
                 ]
             },
@@ -609,12 +951,56 @@
                         temperature: '180°C'
                     },
                     {
-                        id: 'gateau',
-                        title: 'Gâteau',
-                        content: 'Pour un gâteau de 300g, cuire 30 min à 160°C.',
-                        totalTime: 30,
+                        id: 'cookies',
+                        title: 'Cookies maison',
+                        content: 'Pour 8 cookies, cuire 10-12 min à 170°C. Laisser refroidir pour qu\'ils durcissent.',
+                        totalTime: 11,
                         needsStirring: false,
-                        temperature: '160°C'
+                        temperature: '170°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'pommes-cuites',
+                        title: 'Pommes au four',
+                        content: 'Pour 4 pommes évidées, cuire 15-18 min à 180°C. Garnir de miel et de noix.',
+                        totalTime: 17,
+                        needsStirring: false,
+                        temperature: '180°C',
+                        isNew: true
+                    }
+                ]
+            },
+            {
+                id: 'healthy',
+                name: 'Recettes Healthy',
+                icon: '🥗',
+                tips: [
+                    {
+                        id: 'chips-legumes',
+                        title: 'Chips de légumes',
+                        content: 'Pour 2 betteraves ou patates douces en fines tranches, cuire 12-15 min à 180°C. Une seule couche dans le panier.',
+                        totalTime: 14,
+                        needsStirring: true,
+                        temperature: '180°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'tofu-croustillant',
+                        title: 'Tofu croustillant',
+                        content: 'Pour 300g de tofu coupé en dés, cuire 15-18 min à 200°C. Mariner au soja/gingembre avant cuisson.',
+                        totalTime: 17,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'edamame',
+                        title: 'Edamame salé',
+                        content: 'Pour 200g d\'edamame surgelés, cuire 8-10 min à 190°C. Saupoudrer de sel de mer à la sortie.',
+                        totalTime: 9,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
                     }
                 ]
             }
@@ -635,6 +1021,21 @@
         const timerAlert = document.getElementById('timer-alert');
         const timerInfo = document.getElementById('timer-info');
         const timerBackButton = document.getElementById('timer-back-button');
+        const searchBar = document.getElementById('search-bar');
+        
+        // Éléments pour les recettes personnalisées
+        const customRecipesSection = document.getElementById('custom-recipes-section');
+        const addRecipeBtn = document.getElementById('add-recipe-btn');
+        const recipeForm = document.getElementById('recipe-form');
+        const recipeTitleInput = document.getElementById('recipe-title');
+        const recipeCategoryInput = document.getElementById('recipe-category');
+        const recipeDescriptionInput = document.getElementById('recipe-description');
+        const recipeTimeInput = document.getElementById('recipe-time');
+        const recipeTemperatureInput = document.getElementById('recipe-temperature');
+        const recipeNeedsStirringInput = document.getElementById('recipe-needs-stirring');
+        const saveRecipeBtn = document.getElementById('save-recipe');
+        const cancelRecipeBtn = document.getElementById('cancel-recipe');
+        const userRecipesList = document.getElementById('user-recipes-list');
 
         // Variables pour le minuteur
         let timerInterval = null;
@@ -644,6 +1045,10 @@
         let currentTip = null;
         let midCookingAlertShown = false;
 
+        // Variables pour les recettes personnalisées
+        let userRecipes = JSON.parse(localStorage.getItem('easyFryUserRecipes')) || [];
+        let editingRecipeId = null;
+
         // Générer les catégories
         function generateCategories() {
             categoriesContainer.innerHTML = '';
@@ -652,9 +1057,13 @@
                 categoryCard.className = 'category-card';
                 categoryCard.dataset.id = category.id;
                 
+                const newRecipesCount = category.tips.filter(tip => tip.isNew).length;
+                const newBadge = newRecipesCount > 0 ? `<span class="new-badge">${newRecipesCount} nouveau(x)</span>` : '';
+                
                 categoryCard.innerHTML = `
                     <div class="category-icon">${category.icon}</div>
-                    <h3>${category.name}</h3>
+                    <h3>${category.name} ${newBadge}</h3>
+                    <p>${category.tips.length} recettes disponibles</p>
                     <p>Cliquez pour voir les conseils</p>
                 `;
                 
@@ -671,42 +1080,125 @@
                 tipsTitle.textContent = `Conseils pour ${category.name}`;
                 tipsList.innerHTML = '';
                 
+                // Afficher les conseils de base
                 category.tips.forEach(tip => {
-                    const tipItem = document.createElement('div');
-                    tipItem.className = 'tip-item';
-                    
-                    tipItem.innerHTML = `
-                        <div class="tip-content">
-                            <h4>${tip.title}</h4>
-                            <p>${tip.content}</p>
-                        </div>
-                        <button class="timer-btn" data-tip-id="${tip.id}" data-category-id="${category.id}">
-                            Minuteur
-                        </button>
-                    `;
-                    
+                    const tipItem = createTipItem(tip, category.id);
                     tipsList.appendChild(tipItem);
                 });
                 
-                // Ajouter les événements aux boutons minuteur
-                document.querySelectorAll('.timer-btn').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const tipId = e.target.dataset.tipId;
-                        const categoryId = e.target.dataset.categoryId;
-                        const category = categoriesData.find(cat => cat.id === categoryId);
-                        const tip = category.tips.find(t => t.id === tipId);
-                        startTimer(tip, category.name);
+                // Afficher les recettes personnalisées de cette catégorie
+                const userCategoryRecipes = userRecipes.filter(recipe => recipe.category === categoryId);
+                if (userCategoryRecipes.length > 0) {
+                    const customHeader = document.createElement('div');
+                    customHeader.innerHTML = '<h3 style="margin-top: 1.5rem; color: var(--info-color);">Mes recettes personnalisées</h3>';
+                    tipsList.appendChild(customHeader);
+                    
+                    userCategoryRecipes.forEach(recipe => {
+                        const tipItem = createTipItem(recipe, category.id, true);
+                        tipsList.appendChild(tipItem);
                     });
-                });
+                }
                 
                 tipsSection.classList.add('active');
                 categoriesContainer.style.display = 'none';
                 timerSection.classList.remove('active');
+                customRecipesSection.style.display = 'none';
             }
         }
 
+        // Créer un élément de conseil
+        function createTipItem(tip, categoryId, isUserRecipe = false) {
+            const tipItem = document.createElement('div');
+            tipItem.className = 'tip-item';
+            if (isUserRecipe) {
+                tipItem.style.borderLeft = '4px solid var(--info-color)';
+            } else if (tip.isNew) {
+                tipItem.style.borderLeft = '4px solid var(--success-color)';
+            }
+            
+            const newBadge = tip.isNew ? '<span class="new-badge">NOUVEAU</span>' : '';
+            const userBadge = isUserRecipe ? '<span style="color: var(--info-color); font-size: 0.8em;">(Personnalisée)</span>' : '';
+            
+            tipItem.innerHTML = `
+                <div class="tip-content">
+                    <h4>${tip.title} ${newBadge} ${userBadge}</h4>
+                    <p>${tip.content}</p>
+                </div>
+                <button class="timer-btn" data-tip-id="${tip.id}" data-category-id="${categoryId}" data-is-user="${isUserRecipe}">
+                    Minuteur
+                </button>
+            `;
+            
+            return tipItem;
+        }
+
+        // Fonction de recherche
+        function searchRecipes(query) {
+            const normalizedQuery = query.toLowerCase().trim();
+            if (!normalizedQuery) {
+                generateCategories();
+                return;
+            }
+
+            categoriesContainer.innerHTML = '';
+            const results = [];
+
+            categoriesData.forEach(category => {
+                category.tips.forEach(tip => {
+                    if (tip.title.toLowerCase().includes(normalizedQuery) || 
+                        tip.content.toLowerCase().includes(normalizedQuery) ||
+                        category.name.toLowerCase().includes(normalizedQuery)) {
+                        results.push({ category, tip });
+                    }
+                });
+            });
+
+            // Rechercher aussi dans les recettes personnalisées
+            userRecipes.forEach(recipe => {
+                if (recipe.title.toLowerCase().includes(normalizedQuery) || 
+                    recipe.content.toLowerCase().includes(normalizedQuery)) {
+                    const category = categoriesData.find(cat => cat.id === recipe.category) || { name: 'Autre', icon: '⭐' };
+                    results.push({ category, tip: recipe });
+                }
+            });
+
+            if (results.length === 0) {
+                categoriesContainer.innerHTML = '<div class="no-results">Aucune recette trouvée pour votre recherche.</div>';
+                return;
+            }
+
+            // Afficher les résultats
+            results.forEach(({ category, tip }) => {
+                const tipElement = createTipElement(tip, category);
+                categoriesContainer.appendChild(tipElement);
+            });
+        }
+
+        function createTipElement(tip, category) {
+            const tipElement = document.createElement('div');
+            tipElement.className = 'category-card';
+            tipElement.style.cursor = 'pointer';
+            
+            const newBadge = tip.isNew ? '<span class="new-badge">NOUVEAU</span>' : '';
+            const userBadge = tip.isUserRecipe ? '<span style="color: var(--info-color); font-size: 0.8em;">(Personnalisée)</span>' : '';
+            
+            tipElement.innerHTML = `
+                <div class="category-icon">${category.icon}</div>
+                <h3>${tip.title} ${newBadge} ${userBadge}</h3>
+                <p><strong>Catégorie:</strong> ${category.name}</p>
+                <p>${tip.content.substring(0, 80)}...</p>
+                <p><strong>⏱ ${tip.totalTime} min - 🌡 ${tip.temperature}</strong></p>
+            `;
+            
+            tipElement.addEventListener('click', () => {
+                startTimer(tip, category.name, tip.isUserRecipe);
+            });
+            
+            return tipElement;
+        }
+
         // Démarrer le minuteur
-        function startTimer(tip, categoryName) {
+        function startTimer(tip, categoryName, isUserRecipe = false) {
             // Arrêter le minuteur précédent s'il existe
             if (timerInterval) {
                 clearInterval(timerInterval);
@@ -719,13 +1211,13 @@
             midCookingAlertShown = false;
             
             // Mettre à jour l'interface
-            timerTitle.textContent = `Minuteur: ${tip.title}`;
+            timerTitle.textContent = `Minuteur: ${tip.title} ${isUserRecipe ? '(Personnalisée)' : ''}`;
             updateTimerDisplay();
             
             // Afficher les informations du plat
             timerInfo.innerHTML = `
                 <p><strong>Catégorie:</strong> ${categoryName}</p>
-                <p><strong>Plat:</strong> ${tip.title}</p>
+                <p><strong>Plat:</strong> ${tip.title} ${isUserRecipe ? '<span style="color: var(--info-color);">(Recette personnalisée)</span>' : ''}</p>
                 <p><strong>Température:</strong> ${tip.temperature}</p>
                 <p><strong>Instructions:</strong> ${tip.content}</p>
                 ${tip.needsStirring ? '<p><strong>⚠️ Important:</strong> Retournez vos aliments à mi-cuisson!</p>' : ''}
@@ -742,6 +1234,7 @@
             timerSection.classList.add('active');
             tipsSection.classList.remove('active');
             categoriesContainer.style.display = 'none';
+            customRecipesSection.style.display = 'none';
         }
 
         // Mettre à jour l'affichage du minuteur
@@ -833,7 +1326,6 @@
 
         // Jouer un son d'alarme
         function playAlarmSound() {
-            // Créer un bip simple avec l'API Web Audio
             try {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 const oscillator = audioContext.createOscillator();
@@ -855,16 +1347,173 @@
             }
         }
 
+        // Afficher le formulaire d'ajout de recette
+        function showRecipeForm() {
+            recipeForm.classList.add('active');
+            addRecipeBtn.style.display = 'none';
+            editingRecipeId = null;
+            clearRecipeForm();
+        }
+
+        // Masquer le formulaire de recette
+        function hideRecipeForm() {
+            recipeForm.classList.remove('active');
+            addRecipeBtn.style.display = 'flex';
+            editingRecipeId = null;
+            clearRecipeForm();
+        }
+
+        // Effacer le formulaire
+        function clearRecipeForm() {
+            recipeTitleInput.value = '';
+            recipeCategoryInput.value = '';
+            recipeDescriptionInput.value = '';
+            recipeTimeInput.value = '';
+            recipeTemperatureInput.value = '';
+            recipeNeedsStirringInput.checked = false;
+        }
+
+        // Enregistrer une recette
+        function saveRecipe() {
+            const title = recipeTitleInput.value.trim();
+            const category = recipeCategoryInput.value;
+            const description = recipeDescriptionInput.value.trim();
+            const time = parseInt(recipeTimeInput.value);
+            const temperature = recipeTemperatureInput.value.trim();
+            const needsStirring = recipeNeedsStirringInput.checked;
+
+            // Validation
+            if (!title || !category || !description || !time || !temperature) {
+                alert('Veuillez remplir tous les champs obligatoires (*)');
+                return;
+            }
+
+            const recipe = {
+                id: editingRecipeId || 'user-' + Date.now(),
+                title,
+                category,
+                content: description,
+                totalTime: time,
+                temperature,
+                needsStirring,
+                isUserRecipe: true
+            };
+
+            if (editingRecipeId) {
+                // Modification d'une recette existante
+                const index = userRecipes.findIndex(r => r.id === editingRecipeId);
+                if (index !== -1) {
+                    userRecipes[index] = recipe;
+                }
+            } else {
+                // Ajout d'une nouvelle recette
+                userRecipes.push(recipe);
+            }
+
+            // Sauvegarder dans le localStorage
+            localStorage.setItem('easyFryUserRecipes', JSON.stringify(userRecipes));
+            
+            // Mettre à jour l'affichage
+            displayUserRecipes();
+            hideRecipeForm();
+            
+            // Recharger les conseils si on est dans une catégorie
+            if (tipsSection.classList.contains('active')) {
+                const currentCategory = document.querySelector('.category-card.active');
+                if (currentCategory) {
+                    showTips(currentCategory.dataset.id);
+                }
+            }
+        }
+
+        // Modifier une recette
+        function editRecipe(recipeId) {
+            const recipe = userRecipes.find(r => r.id === recipeId);
+            if (recipe) {
+                recipeTitleInput.value = recipe.title;
+                recipeCategoryInput.value = recipe.category;
+                recipeDescriptionInput.value = recipe.content;
+                recipeTimeInput.value = recipe.totalTime;
+                recipeTemperatureInput.value = recipe.temperature;
+                recipeNeedsStirringInput.checked = recipe.needsStirring;
+                
+                editingRecipeId = recipeId;
+                recipeForm.classList.add('active');
+                addRecipeBtn.style.display = 'none';
+            }
+        }
+
+        // Supprimer une recette
+        function deleteRecipe(recipeId) {
+            if (confirm('Êtes-vous sûr de vouloir supprimer cette recette ?')) {
+                userRecipes = userRecipes.filter(r => r.id !== recipeId);
+                localStorage.setItem('easyFryUserRecipes', JSON.stringify(userRecipes));
+                displayUserRecipes();
+                
+                // Recharger les conseils si on est dans une catégorie
+                if (tipsSection.classList.contains('active')) {
+                    const currentCategory = document.querySelector('.category-card.active');
+                    if (currentCategory) {
+                        showTips(currentCategory.dataset.id);
+                    }
+                }
+            }
+        }
+
+        // Afficher les recettes personnalisées
+        function displayUserRecipes() {
+            if (userRecipes.length === 0) {
+                userRecipesList.innerHTML = '<div class="no-recipes">Aucune recette personnalisée. Ajoutez votre première recette !</div>';
+                return;
+            }
+
+            userRecipesList.innerHTML = '';
+            userRecipes.forEach(recipe => {
+                const recipeElement = document.createElement('div');
+                recipeElement.className = 'user-recipe-item';
+                
+                const categoryName = getCategoryName(recipe.category);
+                
+                recipeElement.innerHTML = `
+                    <div class="user-recipe-header">
+                        <div>
+                            <h4>${recipe.title}</h4>
+                            <p><strong>Catégorie:</strong> ${categoryName} | <strong>Temps:</strong> ${recipe.totalTime} min | <strong>Température:</strong> ${recipe.temperature}</p>
+                        </div>
+                        <div class="user-recipe-actions">
+                            <button class="timer-btn" data-tip-id="${recipe.id}" data-category-id="${recipe.category}" data-is-user="true">
+                                Minuteur
+                            </button>
+                            <button class="btn-edit" onclick="editRecipe('${recipe.id}')">Modifier</button>
+                            <button class="btn-delete" onclick="deleteRecipe('${recipe.id}')">Supprimer</button>
+                        </div>
+                    </div>
+                    <p>${recipe.content}</p>
+                    ${recipe.needsStirring ? '<p><strong>⚠️ Retourner à mi-cuisson</strong></p>' : ''}
+                `;
+                
+                userRecipesList.appendChild(recipeElement);
+            });
+        }
+
+        // Obtenir le nom d'une catégorie
+        function getCategoryName(categoryId) {
+            const category = categoriesData.find(cat => cat.id === categoryId);
+            return category ? category.name : 'Autre';
+        }
+
         // Événements
         backButton.addEventListener('click', () => {
             tipsSection.classList.remove('active');
             timerSection.classList.remove('active');
             categoriesContainer.style.display = 'grid';
+            customRecipesSection.style.display = 'block';
         });
 
         timerBackButton.addEventListener('click', () => {
             timerSection.classList.remove('active');
             tipsSection.classList.add('active');
+            customRecipesSection.style.display = 'none';
             resetTimer();
         });
 
@@ -872,8 +1521,51 @@
         timerPause.addEventListener('click', pauseTimer);
         timerReset.addEventListener('click', resetTimer);
 
+        // Événements pour les recettes personnalisées
+        addRecipeBtn.addEventListener('click', showRecipeForm);
+        cancelRecipeBtn.addEventListener('click', hideRecipeForm);
+        saveRecipeBtn.addEventListener('click', saveRecipe);
+
+        // Événement de recherche
+        searchBar.addEventListener('input', (e) => {
+            searchRecipes(e.target.value);
+        });
+
+        // Gestion des clics sur les boutons minuteur
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('timer-btn') && e.target.dataset.tipId) {
+                const tipId = e.target.dataset.tipId;
+                const categoryId = e.target.dataset.categoryId;
+                const isUserRecipe = e.target.dataset.isUser === 'true';
+                
+                let tip, categoryName;
+                
+                if (isUserRecipe) {
+                    // Recette personnalisée
+                    tip = userRecipes.find(t => t.id === tipId);
+                    categoryName = getCategoryName(tip.category);
+                } else {
+                    // Recette de base
+                    const category = categoriesData.find(cat => cat.id === categoryId);
+                    tip = category.tips.find(t => t.id === tipId);
+                    categoryName = category.name;
+                }
+                
+                if (tip) {
+                    startTimer(tip, categoryName, isUserRecipe);
+                }
+            }
+        });
+
         // Initialiser l'application
-        document.addEventListener('DOMContentLoaded', generateCategories);
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCategories();
+            displayUserRecipes();
+        });
+
+        // Exposer les fonctions globales pour les boutons
+        window.editRecipe = editRecipe;
+        window.deleteRecipe = deleteRecipe;
     </script>
 </body>
 </html>
