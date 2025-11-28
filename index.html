@@ -646,6 +646,7 @@
                         <option value="vegetables">Légumes</option>
                         <option value="pastry">Pâtisserie</option>
                         <option value="healthy">Recettes Healthy</option>
+                        <option value="international">Cuisine Internationale</option>
                         <option value="other">Autre</option>
                     </select>
                 </div>
@@ -727,7 +728,7 @@
     </footer>
     
     <script>
-        // Données des catégories et conseils
+        // Données des catégories et conseils - AVEC 30+ NOUVELLES RECETTES
         const categoriesData = [
             {
                 id: 'potatoes',
@@ -766,6 +767,24 @@
                         totalTime: 25,
                         needsStirring: false,
                         temperature: '180°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'rostis-pommes',
+                        title: 'Röstis de pommes de terre',
+                        content: 'Pour 4 röstis, râper 600g de pommes de terre. Cuire 15-18 min à 190°C. Presser l\'excédent d\'eau avant cuisson.',
+                        totalTime: 17,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'pommes-noisettes',
+                        title: 'Pommes noisettes',
+                        content: 'Pour 400g de pommes noisettes surgelées, cuire 12-15 min à 200°C. Secouer à mi-cuisson.',
+                        totalTime: 14,
+                        needsStirring: true,
+                        temperature: '200°C',
                         isNew: true
                     }
                 ]
@@ -817,6 +836,24 @@
                         needsStirring: true,
                         temperature: '200°C',
                         isNew: true
+                    },
+                    {
+                        id: 'escalopes-dinde',
+                        title: 'Escalopes de dinde',
+                        content: 'Pour 4 escalopes de dinde, cuire 14-16 min à 190°C. Retourner à mi-cuisson. Assaisonner avec herbes de Provence.',
+                        totalTime: 15,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'saucisses-fumées',
+                        title: 'Saucisses fumées',
+                        content: 'Pour 4 saucisses fumées, cuire 12-14 min à 180°C. Piquer les saucisses avant cuisson.',
+                        totalTime: 13,
+                        needsStirring: true,
+                        temperature: '180°C',
+                        isNew: true
                     }
                 ]
             },
@@ -849,6 +886,24 @@
                         totalTime: 9,
                         needsStirring: true,
                         temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'gambas',
+                        title: 'Gambas grillées',
+                        content: 'Pour 12 gambas décortiquées, cuire 6-8 min à 190°C. Arroser d\'huile d\'olive et d\'ail haché.',
+                        totalTime: 7,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'filets-merlu',
+                        title: 'Filets de merlu',
+                        content: 'Pour 4 filets de merlu, cuire 10-12 min à 170°C. Parsemer de persil frais.',
+                        totalTime: 11,
+                        needsStirring: false,
+                        temperature: '170°C',
                         isNew: true
                     }
                 ]
@@ -892,6 +947,24 @@
                         needsStirring: false,
                         temperature: '180°C',
                         isNew: true
+                    },
+                    {
+                        id: 'croquettes-fromage',
+                        title: 'Croquettes de fromage',
+                        content: 'Pour 10 croquettes au fromage, cuire 8-10 min à 190°C. Servir avec sauce tomate.',
+                        totalTime: 9,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'spring-rolls',
+                        title: 'Spring rolls poulet',
+                        content: 'Pour 6 spring rolls au poulet, cuire 10-12 min à 200°C. Retourner à mi-cuisson.',
+                        totalTime: 11,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
                     }
                 ]
             },
@@ -934,6 +1007,24 @@
                         needsStirring: true,
                         temperature: '200°C',
                         isNew: true
+                    },
+                    {
+                        id: 'poivrons-multicolores',
+                        title: 'Poivrons multicolores',
+                        content: 'Pour 3 poivrons coupés en lanières, cuire 12-15 min à 200°C. Ajouter de l\'ail et du thym.',
+                        totalTime: 14,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'asperges',
+                        title: 'Asperges vertes',
+                        content: 'Pour 500g d\'asperges, cuire 8-10 min à 190°C. Arroser d\'huile d\'olive et de jus de citron.',
+                        totalTime: 9,
+                        needsStirring: false,
+                        temperature: '190°C',
+                        isNew: true
                     }
                 ]
             },
@@ -967,6 +1058,24 @@
                         needsStirring: false,
                         temperature: '180°C',
                         isNew: true
+                    },
+                    {
+                        id: 'brownies',
+                        title: 'Brownies fondants',
+                        content: 'Pour un moule carré, cuire 18-20 min à 170°C. Laisser refroidir avant de découper.',
+                        totalTime: 19,
+                        needsStirring: false,
+                        temperature: '170°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'palmiers',
+                        title: 'Palmiers feuilletés',
+                        content: 'Pour 10 palmiers surgelés, cuire 8-10 min à 190°C. Saupoudrer de sucre avant cuisson.',
+                        totalTime: 9,
+                        needsStirring: false,
+                        temperature: '190°C',
+                        isNew: true
                     }
                 ]
             },
@@ -998,6 +1107,76 @@
                         title: 'Edamame salé',
                         content: 'Pour 200g d\'edamame surgelés, cuire 8-10 min à 190°C. Saupoudrer de sel de mer à la sortie.',
                         totalTime: 9,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'falafels',
+                        title: 'Falafels maison',
+                        content: 'Pour 15 falafels, cuire 12-15 min à 190°C. Servir avec sauce tahini et salade.',
+                        totalTime: 14,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'lentilles-epicees',
+                        title: 'Galettes de lentilles',
+                        content: 'Pour 8 galettes de lentilles, cuire 10-12 min à 190°C. Secouer à mi-cuisson.',
+                        totalTime: 11,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    }
+                ]
+            },
+            {
+                id: 'international',
+                name: 'Cuisine Internationale',
+                icon: '🌍',
+                tips: [
+                    {
+                        id: 'fajitas-poulet',
+                        title: 'Fajitas de poulet',
+                        content: 'Pour 4 portions de poulet et légumes pour fajitas, cuire 15-18 min à 200°C. Servir avec tortillas.',
+                        totalTime: 17,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'nems-poulet',
+                        title: 'Nems au poulet',
+                        content: 'Pour 8 nems, cuire 12-15 min à 190°C. Retourner à mi-cuisson. Servir avec nuoc mam.',
+                        totalTime: 14,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'samossas-boeuf',
+                        title: 'Samossas au bœuf',
+                        content: 'Pour 6 samossas, cuire 10-12 min à 200°C. Secouer à mi-cuisson.',
+                        totalTime: 11,
+                        needsStirring: true,
+                        temperature: '200°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'burritos-légumes',
+                        title: 'Burritos aux légumes',
+                        content: 'Pour 4 burritos farcis, cuire 8-10 min à 190°C. Retourner à mi-cuisson.',
+                        totalTime: 9,
+                        needsStirring: true,
+                        temperature: '190°C',
+                        isNew: true
+                    },
+                    {
+                        id: 'gyozas-poulet',
+                        title: 'Gyozas au poulet',
+                        content: 'Pour 10 gyozas surgelés, cuire 10-12 min à 190°C. Servir avec sauce soja.',
+                        totalTime: 11,
                         needsStirring: true,
                         temperature: '190°C',
                         isNew: true
