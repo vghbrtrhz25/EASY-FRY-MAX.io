@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conseils EASY FRY™ MAX - Moulinex</title>
+    <style>
+        :root {
+            --primary-color: #e60023;
+            --secondary-color: #333333;
+            --light-color: #f5f5f5;
+            --border-color: #dddddd;
+            --text-color: #333333;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .category-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .tips-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .tips-section.active {
+            display: block;
+        }
+        
+        .tips-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .tip-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: var(--light-color);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tip-content {
+            flex: 1;
+        }
+        
+        .tip-item h4 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .timer-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .timer-btn:hover {
+            background-color: #cc001f;
+        }
+        
+        .timer-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .back-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .back-button:hover {
+            background-color: #cc001f;
+        }
+        
+        .timer-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+            text-align: center;
+        }
+        
+        .timer-section.active {
+            display: block;
+        }
+        
+        .timer-display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--primary-color);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .timer-btn-start {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .timer-btn-pause {
+            background-color: var(--warning-color);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .timer-btn-reset {
+            background-color: var(--danger-color);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .timer-alert {
+            background-color: var(--warning-color);
+            color: var(--secondary-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            display: none;
+            font-weight: bold;
+        }
+        
+        .timer-alert.active {
+            display: block;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .timer-info {
+            background-color: var(--light-color);
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            text-align: left;
+        }
+        
+        .maintenance-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .maintenance-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .general-tips-section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+        }
+        
+        .general-tips-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .timer-display {
+                font-size: 2.5rem;
+            }
+            
+            .timer-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timer-controls button {
+                width: 80%;
+            }
+            
+            .tip-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timer-btn {
+                margin-top: 0.5rem;
+                align-self: flex-end;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-img">EF</div>
+                <h1>EASY FRY™ MAX</h1>
+            </div>
+            <p>Conseils personnalisés pour votre appareil</p>
+        </div>
+    </header>
+    
+    <main>
+        <section class="categories-grid" id="categories">
+            <!-- Les catégories seront générées dynamiquement par JavaScript -->
+        </section>
+        
+        <section class="tips-section" id="tips-section">
+            <button class="back-button" id="back-button">
+                <span>←</span> Retour aux catégories
+            </button>
+            <h2 id="tips-title">Conseils</h2>
+            <div id="tips-list">
+                <!-- Les conseils seront générés dynamiquement par JavaScript -->
+            </div>
+        </section>
+        
+        <section class="timer-section" id="timer-section">
+            <button class="back-button" id="timer-back-button">
+                <span>←</span> Retour aux conseils
+            </button>
+            <h2 id="timer-title">Minuteur de cuisson</h2>
+            <div class="timer-display" id="timer-display">00:00</div>
+            <div class="timer-controls">
+                <button class="timer-btn-start" id="timer-start">Démarrer</button>
+                <button class="timer-btn-pause" id="timer-pause" disabled>Pause</button>
+                <button class="timer-btn-reset" id="timer-reset">Réinitialiser</button>
+            </div>
+            <div class="timer-alert" id="timer-alert">
+                ⏰ Il est temps de retourner vos aliments à mi-cuisson !
+            </div>
+            <div class="timer-info" id="timer-info">
+                <!-- Informations sur le plat en cours -->
+            </div>
+        </section>
+        
+        <section class="maintenance-section">
+            <h2>Entretien de votre EASY FRY™ MAX</h2>
+            <div class="tip-item">
+                <h4>Nettoyage de l'appareil</h4>
+                <p>Ne jamais immerger la base de l'appareil dans l'eau. Utilisez un chiffon humide pour nettoyer les surfaces extérieures.</p>
+            </div>
+            <div class="tip-item">
+                <h4>Entretien du panier</h4>
+                <p>Nettoyez le panier avec un chiffon humide après chaque utilisation. Pour les résidus tenaces, laissez-le tremper dans de l'eau chaude savonneuse.</p>
+            </div>
+            <div class="tip-item">
+                <h4>Stockage</h4>
+                <p>Rangez votre appareil dans un endroit sec et propre. Assurez-vous qu'il est complètement refroidi avant de le ranger.</p>
+            </div>
+        </section>
+        
+        <section class="general-tips-section">
+            <h2>Conseils généraux pour optimiser la cuisson</h2>
+            <div class="tip-item">
+                <h4>Préchauffage</h4>
+                <p>Préchauffez toujours votre appareil pendant 3-5 minutes avant d'ajouter les ingrédients pour une cuisson uniforme.</p>
+            </div>
+            <div class="tip-item">
+                <h4>Retournement des aliments</h4>
+                <p>Retournez les aliments à mi-cuisson pour une cuisson uniforme sur toutes les faces.</p>
+            </div>
+            <div class="tip-item">
+                <h4>Quantités recommandées</h4>
+                <p>Ne dépassez jamais les quantités maximales d'ingrédients indiquées dans le mode d'emploi pour éviter d'endommager votre appareil.</p>
+            </div>
+            <div class="tip-item">
+                <h4>Utilisation d'huile</h4>
+                <p>Pour certains aliments comme les frites, ajoutez une cuillère à soupe d'huile pour une meilleure texture et coloration.</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2023 - Conseils pour l'EASY FRY™ MAX de Moulinex</p>
+    </footer>
+    
+    <script>
+        // Données des catégories et conseils
+        const categoriesData = [
+            {
+                id: 'potatoes',
+                name: 'Pommes de terre et frites',
+                icon: '🥔',
+                tips: [
+                    {
+                        id: 'frites-surgelées',
+                        title: 'Frites surgelées fines',
+                        content: 'Pour 300-800g de frites surgelées fines, cuire 20-30 min à 180°C. Ajouter une cuillère à soupe d\'huile et remuer à mi-cuisson.',
+                        totalTime: 25,
+                        needsStirring: true,
+                        temperature: '180°C'
+                    },
+                    {
+                        id: 'frites-maison',
+                        title: 'Frites maison',
+                        content: 'Pour des frites maison (8x8 mm), cuire 22-27 min à 180°C. Ajouter une cuillère à soupe d\'huile et remuer à mi-cuisson.',
+                        totalTime: 25,
+                        needsStirring: true,
+                        temperature: '180°C'
+                    },
+                    {
+                        id: 'quartiers-pommes',
+                        title: 'Quartiers de pommes de terre surgelées',
+                        content: 'Pour 300-800g de quartiers de pommes de terre surgelées, cuire 22-27 min à 180°C. Remuer à mi-cuisson.',
+                        totalTime: 25,
+                        needsStirring: true,
+                        temperature: '180°C'
+                    }
+                ]
+            },
+            {
+                id: 'meats',
+                name: 'Viandes et volailles',
+                icon: '🍖',
+                tips: [
+                    {
+                        id: 'steaks-congeles',
+                        title: 'Steaks congelés',
+                        content: 'Pour 100-500g de steaks congelés, cuire 6-10 min à 180°C. Retourner à mi-cuisson.',
+                        totalTime: 8,
+                        needsStirring: true,
+                        temperature: '180°C'
+                    },
+                    {
+                        id: 'poitrines-poulet',
+                        title: 'Poitrines de poulet',
+                        content: 'Pour 100-500g de poitrines de poulet désossées, cuire 12-19 min à 180°C. Retourner à mi-cuisson.',
+                        totalTime: 15,
+                        needsStirring: true,
+                        temperature: '180°C'
+                    },
+                    {
+                        id: 'poulet-entier',
+                        title: 'Poulet entier',
+                        content: 'Pour un poulet entier de 1000g, cuire 45 min à 200°C.',
+                        totalTime: 45,
+                        needsStirring: false,
+                        temperature: '200°C'
+                    },
+                    {
+                        id: 'bacon',
+                        title: 'Bacon',
+                        content: 'Pour 150g de bacon (environ 10 tranches), cuire 8 min à 180°C. Retourner à mi-cuisson.',
+                        totalTime: 8,
+                        needsStirring: true,
+                        temperature: '180°C'
+                    }
+                ]
+            },
+            {
+                id: 'fish',
+                name: 'Poisson',
+                icon: '🐟',
+                tips: [
+                    {
+                        id: 'saumon',
+                        title: 'Pavé de saumon',
+                        content: 'Pour un pavé de saumon de 350g, cuire 15-17 min à 140°C.',
+                        totalTime: 16,
+                        needsStirring: false,
+                        temperature: '140°C'
+                    },
+                    {
+                        id: 'crevettes',
+                        title: 'Crevettes',
+                        content: 'Pour 12 crevettes, cuire 4 min à 170°C.',
+                        totalTime: 4,
+                        needsStirring: false,
+                        temperature: '170°C'
+                    }
+                ]
+            },
+            {
+                id: 'snacks',
+                name: 'Snacks',
+                icon: '🍿',
+                tips: [
+                    {
+                        id: 'nuggets',
+                        title: 'Nuggets de poulet',
+                        content: 'Pour 100-600g de nuggets de poulet surgelés, cuire 7-15 min à 200°C. Remuer à mi-cuisson.',
+                        totalTime: 11,
+                        needsStirring: true,
+                        temperature: '200°C'
+                    },
+                    {
+                        id: 'ailes-poulet',
+                        title: 'Ailes de poulet',
+                        content: 'Pour 300g d\'ailes de poulet surgelées, cuire 16-20 min à 200°C. Remuer à mi-cuisson.',
+                        totalTime: 18,
+                        needsStirring: true,
+                        temperature: '200°C'
+                    },
+                    {
+                        id: 'batonnets-fromage',
+                        title: 'Bâtonnets de fromage',
+                        content: 'Pour 125g de bâtonnets de fromage surgelés (5 pièces), cuire 7-9 min à 180°C.',
+                        totalTime: 8,
+                        needsStirring: false,
+                        temperature: '180°C'
+                    },
+                    {
+                        id: 'rondelles-oignon',
+                        title: 'Rondelles d\'oignon',
+                        content: 'Pour 200g de rondelles d\'oignon surgelées (10 pièces), cuire 8-10 min à 200°C. Remuer à mi-cuisson.',
+                        totalTime: 9,
+                        needsStirring: true,
+                        temperature: '200°C'
+                    },
+                    {
+                        id: 'pizza',
+                        title: 'Pizza',
+                        content: 'Pour une pizza de 400g, cuire 7 min à 190°C.',
+                        totalTime: 7,
+                        needsStirring: false,
+                        temperature: '190°C'
+                    }
+                ]
+            },
+            {
+                id: 'vegetables',
+                name: 'Légumes',
+                icon: '🥦',
+                tips: [
+                    {
+                        id: 'courgettes',
+                        title: 'Courgettes',
+                        content: 'Pour 300g de courgettes, cuire 15-20 min à 200°C.',
+                        totalTime: 18,
+                        needsStirring: false,
+                        temperature: '200°C'
+                    }
+                ]
+            },
+            {
+                id: 'pastry',
+                name: 'Pâtisserie',
+                icon: '🧁',
+                tips: [
+                    {
+                        id: 'muffins',
+                        title: 'Muffins',
+                        content: 'Pour 7 muffins, cuire 15-18 min à 180°C. Utilisez un plat allant au four.',
+                        totalTime: 17,
+                        needsStirring: false,
+                        temperature: '180°C'
+                    },
+                    {
+                        id: 'gateau',
+                        title: 'Gâteau',
+                        content: 'Pour un gâteau de 300g, cuire 30 min à 160°C.',
+                        totalTime: 30,
+                        needsStirring: false,
+                        temperature: '160°C'
+                    }
+                ]
+            }
+        ];
+
+        // Éléments DOM
+        const categoriesContainer = document.getElementById('categories');
+        const tipsSection = document.getElementById('tips-section');
+        const tipsTitle = document.getElementById('tips-title');
+        const tipsList = document.getElementById('tips-list');
+        const backButton = document.getElementById('back-button');
+        const timerSection = document.getElementById('timer-section');
+        const timerTitle = document.getElementById('timer-title');
+        const timerDisplay = document.getElementById('timer-display');
+        const timerStart = document.getElementById('timer-start');
+        const timerPause = document.getElementById('timer-pause');
+        const timerReset = document.getElementById('timer-reset');
+        const timerAlert = document.getElementById('timer-alert');
+        const timerInfo = document.getElementById('timer-info');
+        const timerBackButton = document.getElementById('timer-back-button');
+
+        // Variables pour le minuteur
+        let timerInterval = null;
+        let timeLeft = 0;
+        let totalTime = 0;
+        let isRunning = false;
+        let currentTip = null;
+        let midCookingAlertShown = false;
+
+        // Générer les catégories
+        function generateCategories() {
+            categoriesContainer.innerHTML = '';
+            categoriesData.forEach(category => {
+                const categoryCard = document.createElement('div');
+                categoryCard.className = 'category-card';
+                categoryCard.dataset.id = category.id;
+                
+                categoryCard.innerHTML = `
+                    <div class="category-icon">${category.icon}</div>
+                    <h3>${category.name}</h3>
+                    <p>Cliquez pour voir les conseils</p>
+                `;
+                
+                categoryCard.addEventListener('click', () => showTips(category.id));
+                categoriesContainer.appendChild(categoryCard);
+            });
+        }
+
+        // Afficher les conseils d'une catégorie
+        function showTips(categoryId) {
+            const category = categoriesData.find(cat => cat.id === categoryId);
+            
+            if (category) {
+                tipsTitle.textContent = `Conseils pour ${category.name}`;
+                tipsList.innerHTML = '';
+                
+                category.tips.forEach(tip => {
+                    const tipItem = document.createElement('div');
+                    tipItem.className = 'tip-item';
+                    
+                    tipItem.innerHTML = `
+                        <div class="tip-content">
+                            <h4>${tip.title}</h4>
+                            <p>${tip.content}</p>
+                        </div>
+                        <button class="timer-btn" data-tip-id="${tip.id}" data-category-id="${category.id}">
+                            Minuteur
+                        </button>
+                    `;
+                    
+                    tipsList.appendChild(tipItem);
+                });
+                
+                // Ajouter les événements aux boutons minuteur
+                document.querySelectorAll('.timer-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const tipId = e.target.dataset.tipId;
+                        const categoryId = e.target.dataset.categoryId;
+                        const category = categoriesData.find(cat => cat.id === categoryId);
+                        const tip = category.tips.find(t => t.id === tipId);
+                        startTimer(tip, category.name);
+                    });
+                });
+                
+                tipsSection.classList.add('active');
+                categoriesContainer.style.display = 'none';
+                timerSection.classList.remove('active');
+            }
+        }
+
+        // Démarrer le minuteur
+        function startTimer(tip, categoryName) {
+            // Arrêter le minuteur précédent s'il existe
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            
+            currentTip = tip;
+            totalTime = tip.totalTime * 60; // Convertir en secondes
+            timeLeft = totalTime;
+            midCookingAlertShown = false;
+            
+            // Mettre à jour l'interface
+            timerTitle.textContent = `Minuteur: ${tip.title}`;
+            updateTimerDisplay();
+            
+            // Afficher les informations du plat
+            timerInfo.innerHTML = `
+                <p><strong>Catégorie:</strong> ${categoryName}</p>
+                <p><strong>Plat:</strong> ${tip.title}</p>
+                <p><strong>Température:</strong> ${tip.temperature}</p>
+                <p><strong>Instructions:</strong> ${tip.content}</p>
+                ${tip.needsStirring ? '<p><strong>⚠️ Important:</strong> Retournez vos aliments à mi-cuisson!</p>' : ''}
+            `;
+            
+            // Réinitialiser l'interface du minuteur
+            timerAlert.classList.remove('active');
+            timerStart.textContent = 'Démarrer';
+            timerStart.disabled = false;
+            timerPause.disabled = true;
+            timerPause.textContent = 'Pause';
+            
+            // Afficher la section minuteur
+            timerSection.classList.add('active');
+            tipsSection.classList.remove('active');
+            categoriesContainer.style.display = 'none';
+        }
+
+        // Mettre à jour l'affichage du minuteur
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Changer la couleur selon le temps restant
+            if (timeLeft <= 60) {
+                timerDisplay.style.color = 'var(--danger-color)';
+            } else if (timeLeft <= totalTime / 2) {
+                timerDisplay.style.color = 'var(--warning-color)';
+            } else {
+                timerDisplay.style.color = 'var(--primary-color)';
+            }
+        }
+
+        // Démarrer le compte à rebours
+        function startTimerCountdown() {
+            if (!isRunning && timeLeft > 0) {
+                isRunning = true;
+                timerStart.disabled = true;
+                timerPause.disabled = false;
+                
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    updateTimerDisplay();
+                    
+                    // Vérifier l'alerte à mi-cuisson
+                    if (currentTip.needsStirring && !midCookingAlertShown && timeLeft <= Math.floor(totalTime / 2)) {
+                        showMidCookingAlert();
+                        midCookingAlertShown = true;
+                    }
+                    
+                    // Vérifier si le temps est écoulé
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        isRunning = false;
+                        timerStart.disabled = true;
+                        timerPause.disabled = true;
+                        timerDisplay.textContent = "00:00";
+                        timerDisplay.style.color = 'var(--danger-color)';
+                        playAlarmSound();
+                        alert(`⏰ La cuisson de "${currentTip.title}" est terminée !`);
+                    }
+                }, 1000);
+            }
+        }
+
+        // Afficher l'alerte à mi-cuisson
+        function showMidCookingAlert() {
+            timerAlert.classList.add('active');
+            playAlarmSound();
+            
+            // L'alerte disparaît après 10 secondes
+            setTimeout(() => {
+                timerAlert.classList.remove('active');
+            }, 10000);
+        }
+
+        // Mettre en pause le minuteur
+        function pauseTimer() {
+            if (isRunning) {
+                clearInterval(timerInterval);
+                isRunning = false;
+                timerStart.disabled = false;
+                timerPause.textContent = 'Reprendre';
+                timerStart.textContent = 'Démarrer';
+            } else {
+                startTimerCountdown();
+            }
+        }
+
+        // Réinitialiser le minuteur
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            isRunning = false;
+            timeLeft = totalTime;
+            midCookingAlertShown = false;
+            updateTimerDisplay();
+            timerStart.textContent = 'Démarrer';
+            timerStart.disabled = false;
+            timerPause.disabled = true;
+            timerPause.textContent = 'Pause';
+            timerAlert.classList.remove('active');
+        }
+
+        // Jouer un son d'alarme
+        function playAlarmSound() {
+            // Créer un bip simple avec l'API Web Audio
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 1);
+            } catch (e) {
+                console.log("Audio non supporté");
+            }
+        }
+
+        // Événements
+        backButton.addEventListener('click', () => {
+            tipsSection.classList.remove('active');
+            timerSection.classList.remove('active');
+            categoriesContainer.style.display = 'grid';
+        });
+
+        timerBackButton.addEventListener('click', () => {
+            timerSection.classList.remove('active');
+            tipsSection.classList.add('active');
+            resetTimer();
+        });
+
+        timerStart.addEventListener('click', startTimerCountdown);
+        timerPause.addEventListener('click', pauseTimer);
+        timerReset.addEventListener('click', resetTimer);
+
+        // Initialiser l'application
+        document.addEventListener('DOMContentLoaded', generateCategories);
+    </script>
+</body>
+</html>
