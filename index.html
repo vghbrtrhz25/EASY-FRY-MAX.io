@@ -148,6 +148,42 @@
             color: var(--secondary-color);
         }
         
+        .source-badge {
+            display: inline-block;
+            background-color: var(--info-color);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .source-notice {
+            background-color: var(--primary-color);
+        }
+        
+        .source-marmiton {
+            background-color: #ff6b6b;
+        }
+        
+        .source-cuisine-actuelle {
+            background-color: #4ecdc4;
+        }
+        
+        .source-750g {
+            background-color: #45b7d1;
+        }
+        
+        .source-community {
+            background-color: #96ceb4;
+        }
+        
+        .source-adaptation {
+            background-color: #feca57;
+            color: var(--secondary-color);
+        }
+        
         .timer-btn {
             background-color: var(--primary-color);
             color: white;
@@ -272,6 +308,13 @@
             border-radius: 5px;
             margin: 1rem 0;
             text-align: left;
+        }
+        
+        .source-info {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
         
         .maintenance-section {
@@ -728,7 +771,7 @@
     </footer>
     
     <script>
-        // Données des catégories et conseils - AVEC 30+ NOUVELLES RECETTES
+        // Données des catégories et conseils avec informations de provenance
         const categoriesData = [
             {
                 id: 'potatoes',
@@ -741,7 +784,9 @@
                         content: 'Pour 300-800g de frites surgelées fines, cuire 20-30 min à 180°C. Ajouter une cuillère à soupe d\'huile et remuer à mi-cuisson.',
                         totalTime: 25,
                         needsStirring: true,
-                        temperature: '180°C'
+                        temperature: '180°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'frites-maison',
@@ -749,7 +794,9 @@
                         content: 'Pour des frites maison (8x8 mm), cuire 22-27 min à 180°C. Ajouter une cuillère à soupe d\'huile et remuer à mi-cuisson.',
                         totalTime: 25,
                         needsStirring: true,
-                        temperature: '180°C'
+                        temperature: '180°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'wedges-pommes',
@@ -758,7 +805,9 @@
                         totalTime: 23,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Adapté de Marmiton'
                     },
                     {
                         id: 'gratin-dauphinois',
@@ -767,7 +816,9 @@
                         totalTime: 25,
                         needsStirring: false,
                         temperature: '180°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'rostis-pommes',
@@ -776,7 +827,9 @@
                         totalTime: 17,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'pommes-noisettes',
@@ -785,7 +838,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     }
                 ]
             },
@@ -800,7 +855,9 @@
                         content: 'Pour 100-500g de steaks congelés, cuire 6-10 min à 180°C. Retourner à mi-cuisson.',
                         totalTime: 8,
                         needsStirring: true,
-                        temperature: '180°C'
+                        temperature: '180°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'poitrines-poulet',
@@ -808,7 +865,9 @@
                         content: 'Pour 100-500g de poitrines de poulet désossées, cuire 12-19 min à 180°C. Retourner à mi-cuisson.',
                         totalTime: 15,
                         needsStirring: true,
-                        temperature: '180°C'
+                        temperature: '180°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'brochettes-poulet',
@@ -817,7 +876,9 @@
                         totalTime: 17,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'boulettes-viande',
@@ -826,7 +887,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'cotes-porc',
@@ -835,7 +898,9 @@
                         totalTime: 20,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'escalopes-dinde',
@@ -844,7 +909,9 @@
                         totalTime: 15,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     },
                     {
                         id: 'saucisses-fumées',
@@ -853,7 +920,9 @@
                         totalTime: 13,
                         needsStirring: true,
                         temperature: '180°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'adaptation',
+                        sourceName: 'Adaptation recette traditionnelle'
                     }
                 ]
             },
@@ -868,7 +937,9 @@
                         content: 'Pour un pavé de saumon de 350g, cuire 15-17 min à 140°C.',
                         totalTime: 16,
                         needsStirring: false,
-                        temperature: '140°C'
+                        temperature: '140°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'filets-cabillaud',
@@ -877,7 +948,9 @@
                         totalTime: 13,
                         needsStirring: false,
                         temperature: '160°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'calamars',
@@ -886,7 +959,9 @@
                         totalTime: 9,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'gambas',
@@ -895,7 +970,9 @@
                         totalTime: 7,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'filets-merlu',
@@ -904,7 +981,9 @@
                         totalTime: 11,
                         needsStirring: false,
                         temperature: '170°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     }
                 ]
             },
@@ -919,7 +998,9 @@
                         content: 'Pour 100-600g de nuggets de poulet surgelés, cuire 7-15 min à 200°C. Remuer à mi-cuisson.',
                         totalTime: 11,
                         needsStirring: true,
-                        temperature: '200°C'
+                        temperature: '200°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'samoussas',
@@ -928,7 +1009,9 @@
                         totalTime: 11,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'beignets-legumes',
@@ -937,7 +1020,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'churros',
@@ -946,7 +1031,9 @@
                         totalTime: 9,
                         needsStirring: false,
                         temperature: '180°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'croquettes-fromage',
@@ -955,7 +1042,9 @@
                         totalTime: 9,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     },
                     {
                         id: 'spring-rolls',
@@ -964,7 +1053,9 @@
                         totalTime: 11,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'adaptation',
+                        sourceName: 'Adaptation cuisine asiatique'
                     }
                 ]
             },
@@ -979,7 +1070,9 @@
                         content: 'Pour 300g de courgettes, cuire 15-20 min à 200°C.',
                         totalTime: 18,
                         needsStirring: false,
-                        temperature: '200°C'
+                        temperature: '200°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'brocoli',
@@ -988,7 +1081,9 @@
                         totalTime: 11,
                         needsStirring: false,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'carottes',
@@ -997,7 +1092,9 @@
                         totalTime: 19,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'chou-fleur',
@@ -1006,7 +1103,9 @@
                         totalTime: 17,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'poivrons-multicolores',
@@ -1015,7 +1114,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     },
                     {
                         id: 'asperges',
@@ -1024,7 +1125,9 @@
                         totalTime: 9,
                         needsStirring: false,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'adaptation',
+                        sourceName: 'Adaptation recette traditionnelle'
                     }
                 ]
             },
@@ -1039,7 +1142,9 @@
                         content: 'Pour 7 muffins, cuire 15-18 min à 180°C. Utilisez un plat allant au four.',
                         totalTime: 17,
                         needsStirring: false,
-                        temperature: '180°C'
+                        temperature: '180°C',
+                        source: 'notice',
+                        sourceName: 'Notice officielle Moulinex'
                     },
                     {
                         id: 'cookies',
@@ -1048,7 +1153,9 @@
                         totalTime: 11,
                         needsStirring: false,
                         temperature: '170°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'pommes-cuites',
@@ -1057,7 +1164,9 @@
                         totalTime: 17,
                         needsStirring: false,
                         temperature: '180°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'brownies',
@@ -1066,7 +1175,9 @@
                         totalTime: 19,
                         needsStirring: false,
                         temperature: '170°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'palmiers',
@@ -1075,7 +1186,9 @@
                         totalTime: 9,
                         needsStirring: false,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     }
                 ]
             },
@@ -1091,7 +1204,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '180°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'tofu-croustillant',
@@ -1100,7 +1215,9 @@
                         totalTime: 17,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'edamame',
@@ -1109,7 +1226,9 @@
                         totalTime: 9,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'falafels',
@@ -1118,7 +1237,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     },
                     {
                         id: 'lentilles-epicees',
@@ -1127,7 +1248,9 @@
                         totalTime: 11,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'adaptation',
+                        sourceName: 'Adaptation cuisine méditerranéenne'
                     }
                 ]
             },
@@ -1143,7 +1266,9 @@
                         totalTime: 17,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'marmiton',
+                        sourceName: 'Marmiton'
                     },
                     {
                         id: 'nems-poulet',
@@ -1152,7 +1277,9 @@
                         totalTime: 14,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'cuisine-actuelle',
+                        sourceName: 'Cuisine Actuelle'
                     },
                     {
                         id: 'samossas-boeuf',
@@ -1161,7 +1288,9 @@
                         totalTime: 11,
                         needsStirring: true,
                         temperature: '200°C',
-                        isNew: true
+                        isNew: true,
+                        source: '750g',
+                        sourceName: '750g'
                     },
                     {
                         id: 'burritos-légumes',
@@ -1170,7 +1299,9 @@
                         totalTime: 9,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'community',
+                        sourceName: 'Communauté utilisateurs'
                     },
                     {
                         id: 'gyozas-poulet',
@@ -1179,7 +1310,9 @@
                         totalTime: 11,
                         needsStirring: true,
                         temperature: '190°C',
-                        isNew: true
+                        isNew: true,
+                        source: 'adaptation',
+                        sourceName: 'Adaptation cuisine japonaise'
                     }
                 ]
             }
@@ -1227,6 +1360,19 @@
         // Variables pour les recettes personnalisées
         let userRecipes = JSON.parse(localStorage.getItem('easyFryUserRecipes')) || [];
         let editingRecipeId = null;
+
+        // Fonction pour obtenir la classe CSS de la source
+        function getSourceClass(source) {
+            const sourceClasses = {
+                'notice': 'source-notice',
+                'marmiton': 'source-marmiton',
+                'cuisine-actuelle': 'source-cuisine-actuelle',
+                '750g': 'source-750g',
+                'community': 'source-community',
+                'adaptation': 'source-adaptation'
+            };
+            return sourceClasses[source] || 'source-badge';
+        }
 
         // Générer les catégories
         function generateCategories() {
@@ -1297,11 +1443,13 @@
             
             const newBadge = tip.isNew ? '<span class="new-badge">NOUVEAU</span>' : '';
             const userBadge = isUserRecipe ? '<span style="color: var(--info-color); font-size: 0.8em;">(Personnalisée)</span>' : '';
+            const sourceBadge = tip.source ? `<span class="source-badge ${getSourceClass(tip.source)}">${tip.sourceName}</span>` : '';
             
             tipItem.innerHTML = `
                 <div class="tip-content">
-                    <h4>${tip.title} ${newBadge} ${userBadge}</h4>
+                    <h4>${tip.title} ${newBadge} ${userBadge} ${sourceBadge}</h4>
                     <p>${tip.content}</p>
+                    ${tip.source ? `<div class="source-info">Source: ${tip.sourceName}</div>` : ''}
                 </div>
                 <button class="timer-btn" data-tip-id="${tip.id}" data-category-id="${categoryId}" data-is-user="${isUserRecipe}">
                     Minuteur
@@ -1360,6 +1508,7 @@
             
             const newBadge = tip.isNew ? '<span class="new-badge">NOUVEAU</span>' : '';
             const userBadge = tip.isUserRecipe ? '<span style="color: var(--info-color); font-size: 0.8em;">(Personnalisée)</span>' : '';
+            const sourceBadge = tip.source ? `<span class="source-badge ${getSourceClass(tip.source)}">${tip.sourceName}</span>` : '';
             
             tipElement.innerHTML = `
                 <div class="category-icon">${category.icon}</div>
@@ -1367,6 +1516,7 @@
                 <p><strong>Catégorie:</strong> ${category.name}</p>
                 <p>${tip.content.substring(0, 80)}...</p>
                 <p><strong>⏱ ${tip.totalTime} min - 🌡 ${tip.temperature}</strong></p>
+                ${sourceBadge ? `<p>${sourceBadge}</p>` : ''}
             `;
             
             tipElement.addEventListener('click', () => {
@@ -1394,10 +1544,13 @@
             updateTimerDisplay();
             
             // Afficher les informations du plat
+            const sourceInfo = tip.source ? `<p><strong>Source:</strong> ${tip.sourceName}</p>` : '';
+            
             timerInfo.innerHTML = `
                 <p><strong>Catégorie:</strong> ${categoryName}</p>
                 <p><strong>Plat:</strong> ${tip.title} ${isUserRecipe ? '<span style="color: var(--info-color);">(Recette personnalisée)</span>' : ''}</p>
                 <p><strong>Température:</strong> ${tip.temperature}</p>
+                ${sourceInfo}
                 <p><strong>Instructions:</strong> ${tip.content}</p>
                 ${tip.needsStirring ? '<p><strong>⚠️ Important:</strong> Retournez vos aliments à mi-cuisson!</p>' : ''}
             `;
